@@ -37,13 +37,13 @@ namespace SimpleSongInfo
         // Initialize mod on startup
         public override void OnApplicationStart()
         {
-            MelonLogger.Log("OnApplicationStart called. Initializing " + BuildInfo.Name + "...");
+            MelonLogger.Msg("OnApplicationStart called. Initializing " + BuildInfo.Name + "...");
             Load();
         }
 
 
         // Gets called on scene change - check for current scene and updates files on disk if neccessary
-        public override void OnLevelWasInitialized(int level)
+        public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
 
             // Check if game scene is active
@@ -79,7 +79,7 @@ namespace SimpleSongInfo
 
         public override void OnApplicationQuit()
         {
-            MelonLogger.Log("OnApplicationQuit called.");
+            MelonLogger.Msg("OnApplicationQuit called.");
         }
 
         private void Load()

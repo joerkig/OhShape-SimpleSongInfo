@@ -23,7 +23,7 @@ namespace SimpleSongInfo
             GameInfo gameInfo = Resources.FindObjectsOfTypeAll<GameInfo>().FirstOrDefault();
             if (gameInfo == null)
             {
-                MelonLogger.LogError("Unable to get game info - quitting!");
+                MelonLogger.Error("Unable to get game info - quitting!");
                 yield return null;
             }
 
@@ -33,14 +33,14 @@ namespace SimpleSongInfo
             SongManager songManager = UnityEngine.Object.FindObjectOfType<SongManager>();
             if (songManager == null)
             {
-                MelonLogger.LogError("Unable to get song manager - quitting!");
+                MelonLogger.Error("Unable to get song manager - quitting!");
                 yield return null;
             }
 
             AlbumSongs_SO songData = songManager.CurrentSong;
             if (songData == null)
             {
-                MelonLogger.LogError("Unable to get song data - quitting!");
+                MelonLogger.Error("Unable to get song data - quitting!");
                 yield return null;
             }
 
