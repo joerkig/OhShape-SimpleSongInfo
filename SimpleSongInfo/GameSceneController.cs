@@ -47,7 +47,22 @@ namespace SimpleSongInfo
             // Prepare the data we can output
             string songAuthor = songData.Author;
             string songName = songData.Name;
-            string songDifficulty = songData.Levels[songManager.CurrentSongLevel].Difficulty.ToString();
+            string songDifficulty = null;
+            switch (songData.Levels[songManager.CurrentSongLevel].Difficulty.ToString())
+            {
+                case "Beginner":
+                    songDifficulty = "Try Out";
+                    break;
+                case "Easy":
+                    songDifficulty = "Medium";
+                    break;
+                case "Medium":
+                    songDifficulty = "Hard";
+                    break;
+                case "Hard":
+                    songDifficulty = "Expert";
+                    break;
+            }
             string songLength = TimeSpan.FromSeconds(songData.AudioTime).ToString(@"%m\:ss");
             string songAccuracyMultiplier = (1 / WallDanceUtils.CurrentPrecisionMultiplier).ToString("F1");
             string songSpeedMultiplier = WallDanceUtils.CurrentSpeedMultiplier.ToString("F1");
